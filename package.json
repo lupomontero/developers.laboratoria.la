@@ -1,0 +1,29 @@
+{
+  "name": "developers",
+  "version": "1.0.0",
+  "description": "Laboratoria developers documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm run test -- --watch",
+    "build": "NODE_ENV=production webpack -p",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laboratoria/developers.git"
+  },
+  "author": "Laboratoria <sumate@laboratoria.la> (http://laboratoria.la/)",
+  "contributors": [
+    "Lupo Montero <lupo@laboratoria.la> (https://github.com/lupomontero)",
+    "Giancarlo Corzo <gian@laboratoria.la> (https://github.com/giancorzo)"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.28.0",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
