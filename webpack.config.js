@@ -19,6 +19,18 @@ module.exports = {
     rules: [{
       test: /\.css$/,
       use: ['style-loader', 'css-loader']
+    },{
+      test: /\.(svg|png|jpg)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'img/',
+            publicPath: 'img/'
+          }
+        }
+      ]
     }]
   },
   plugins: [
