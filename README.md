@@ -54,16 +54,47 @@ Utiliza tu cuenta de laboratoria para acceder a firebase y solicita permisos en 
 
 Laboratoria tiene un serie de proyecto públicos (open source) como privados (bajo el control del Product Team).
 
-Cada proyecto tiene un product manager y por lo general uno o varios developers asignados a tiempo completo. Pero es algo natural rotar entre los distintos proyectos sobre todo cuando hay partes de estos que soslapan.
+Cada proyecto tiene un product manager y por lo general uno o varios developers asignados a tiempo completo. Aunque es natural rotar entre los distintos proyectos sobre todo cuando hay partes de estos que se soslapan.
 
-Productos Open Source:
--
+Proyectos Open source:
 
+| Producto |  Manager  | Descripción |
+|----------|-----------|-------------|
+| [curricula-js](https://github.com/laboratoria/curricula-js) | Rodulfo Prieto | Curricula open source de Javascript para Bootcamp y Educación continua |
+| [curricula-ux](https://github.com/laboratoria/curricula-ux) | Lalo González | Curricula open source de UX para Educación continua |
+
+Proyectos privados:
+
+| Producto |  Manager  | Descripción |
+|----------|-----------|-------------|
+| [Product Team]() | Diego Velez | Repositorio donde manejamos los issues del equipo |
+| [LMS]() | Diego Velez | Interfaz que usan las estudiantes para acceder a los cursos y su información personal |
+| [Talento]() | Andrea Lamas | Aplicación que usa inserción para colocar talento |
+| [API]() | Diego Velez | Repositorio con todas las cloud functions que exponen data a terceros |
+| [Admin]() | Lupo Montero | Herramienta de linea de comandos para ejecutar tareas comunes con los productos |
+| [Developers]() | Diego Velez | Repositorio con la documentación de la mayoría de Proyectos |
+| [Styleguide]() | Herman Marin | Proyecto con todos los estilos de laboratoria |
+| [Dashboard]() | Diego Velez | Producto para acceder a la información de operaciones (No implementado aún) |
+| [Seleccion]() | Daniela Sarzosa | Producto de selección (No implementado aún) |
 
 #### Product Team
 
-La misión del product team es atender todos esos proyectos de largo alcance y de plantear la arquitectura general de los proyectos aunque manager y developer pueden elegir otra arquitectura a la planteada (aunque no es lo recomendado).
+La misión del product team es producir todas herramientas tecnológicas para darle soporte a las operaciones de laboratoria.
+
+Es responsable además de elegir una adecuada arquitectura para soportar el crecimiento de laboratoria.
 
 #### Education Team
 
+La misión del education team es producir el contenido que es consumido por las alumnas en clase.
+
+Es responsable de la curricula Open source.
+
 ### Conoce al equipo
+
+Product Team
+- [Lupo Montero](https://github.com/lupomontero) - Director de tecnología
+- [Gian Corzo](https://github.com/giancorzo) - Senior software developer
+- [Alexander Ocsa](https://github.com/aocsa) - Senior software developer
+- [Lalo Gonzalez](https://github.com/lalogf) - Director de UX
+- [Maia Rojas](https://github.com/MaiaRojas) - Junior software developer
+- [Mery Cardenas](https://github.com/RuthMeryCardenas) - Junior software developer
