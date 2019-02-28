@@ -193,8 +193,11 @@ Job Placemente App
 
 #### [admission.laboratoria.la](https://github.com/Laboratoria/admission.laboratoria.la)
 
+An application for applicants of Laboratoria to go through the admission process.
+
 * PM: [@danielasarzosa](https://github.com/danielasarzosa)
-* Tech lead: [@arun1595](https://github.com/arun1595)
+* Tech lead: [@xpktro](https://github.com/xpktro)
+* Devs: [@arku](https://github.com/arku)
 
 #### alumnae.laboratoria.la
 
