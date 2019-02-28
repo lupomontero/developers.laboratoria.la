@@ -37,6 +37,7 @@ our [digital etiquette](https://github.com/Laboratoria/etiquette).
     + [laboratoria-ui](#laboratoria-ui)
     + [L4B](#)
     + [www.laboratoria.la](#www.laboratoria.la)
+    + [community.laboratoria.la](#community.laboratoria.la)
 * [Stack](#stack)
   - [Core](#core)
   - [Backend](#backend)
@@ -57,7 +58,7 @@ our [digital etiquette](https://github.com/Laboratoria/etiquette).
 * [Deployment](#deployment)
   - [Domains](#domains)
   - [DNS](#dns)
-  - [Node.js modules](#nodejs-modules)
+  - [Node.js modules and CLI tools](#nodejs-modules-and-cli-tools)
   - [Node.js servers](#nodejs-servers)
   - [Cloud functions](#cloud-functions)
   - [Static hosting](#static-hosting)
@@ -222,6 +223,10 @@ CLI tool used for amdin tasks related to API and LMS.
 #### www.laboratoria.la
 
 Instapage???
+
+#### [community.laboratoria.la](http://community.laboratoria.la/)
+
+???
 
 ***
 
@@ -521,13 +526,39 @@ protection as well as free SSL and other useful features.
 
 ???
 
-### Node.js modules
+### Node.js modules and CLI tools
+
+For the time being we are using GitHub releases for our `npm` _modules_ and CLI
+tools. This means that modules can be installed via
+`npm i Laboratoria/repo-name#tag`, or adding to your `package.json`.
+
+Example as dependency in `package.json`:
+
+```json
+{
+  "dependencies": {
+    "schemas": "Laboratoria/schemas#v1.0.0-alpha.3"
+  }
+}
+```
+
+Example installing the `curriculum-parser` globally:
+
+```sh
+# install current release
+npm i -g Laboratoria/curriculum-parser
+
+# install a specific version
+npm i -g "Laboratoria/curriculum-parser#v2.0.0-alpha.2"
+```
 
 GitHub vs NPM Orgs???
 
 ### Node.js Servers
 
 Zeit.co vs Docker vs VM
+
+talento.laboratoria.la y api-next???
 
 ### Cloud functions
 
@@ -544,9 +575,11 @@ Atlas vs Docker vs VM
 
 ### Continuous delivery
 
-Travis...
+[Travis Deployment Docs](https://docs.travis-ci.com/user/deployment).
 
-`.travis.yml`
+Example using a custom deploy script.
+
+In yout `.travis.yml`:
 
 ```yml
 language: node_js
@@ -563,7 +596,7 @@ deploy:
     all_branches: true
 ```
 
-`package.json`
+In your `package.json`:
 
 ```json
 {
