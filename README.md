@@ -8,7 +8,7 @@ The DevsChapter's **main goal is to promote peer learning, sharing and
 cross-pollination across teams**. The community has a bunch of resources to
 enable collaboration, sharing and support among devs.
 
-The DevsChapter **also serves as the purpose of providing design, implementation
+The DevsChapter **also serves the purpose of providing design, implementation
 and collaboration guidelines**.
 
 As part of the team at Laboratoria, we invite you to familiarise yourself with
