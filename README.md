@@ -526,6 +526,13 @@ protection as well as free SSL and other useful features.
 
 ???
 
+* [x] https://www.laboratoria.la/ (???)
+* [x] https://api.laboratoria.la/ (SSL provided by Firebase)
+* [x] https://lms.laboratoria.la/ (SSL provided by Firebase)
+* [x] https://app.talento.laboratoria.la/ (???)
+* [ ] http://community.laboratoria.la/ :warning:
+* [ ] http://developers.laboratoria.la/ :warning:
+
 ### Node.js modules and CLI tools
 
 For the time being we are using GitHub releases for our `npm` _modules_ and CLI
@@ -569,24 +576,101 @@ Firebase functions
 * Firebase hosting
 * ...
 
+### Firestore
+
+...
+
 ### MongoDB
 
 Atlas vs Docker vs VM
 
 ### Continuous delivery
 
-[Travis Deployment Docs](https://docs.travis-ci.com/user/deployment).
+Projects requiring _deployment_ to 3rd party service (ie: Firebase, Zeit, NPM,
+...) should aim to use _continuous delivery_ using
+[Travis' Deployment features](https://docs.travis-ci.com/user/deployment).
 
-Example using a custom deploy script.
+Let's see an example using a custom script to deploy Firebase.
 
-In yout `.travis.yml`:
+Let's start with the `package.json`. The important thing here is that we have
+a `deploy` key in `scripts`:
+
+```json
+{
+  "scripts": {
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "firebase-tools": "6.4.0"
+  }
+}
+```
+
+This will allow us to manually invoke our deploy command:
+
+```sh
+npm run deploy
+
+# or passing some flags...
+npm run deploy --project staging-env
+npm run deploy --only functions
+```
+
+Now that we have defined our `deploy` task as an `npm-script`, let's look at the
+deploy script that we want Travis to trigger. In this example we will use a
+shell script (ie: `scripts/deploy.sh`):
+
+```sh
+#! /usr/bin/env bash
+
+deploy() {
+  echo "Deploying to project ${1}..."
+  npm run deploy --project ${1} --token "$FIREBASE_TOKEN"
+}
+
+if [[ "${TRAVIS_TAG}" == v* ]]; then
+  deploy production-env
+elif [[ "$TRAVIS_BRANCH" == "develop" ]]; then
+  deploy staging-env
+else
+  echo "ignoring branch ${TRAVIS_BRANCH}..."
+  exit 0
+fi
+```
+
+As we see in our script, we are assuming an environment variable called
+`FIREBASE_TOKEN` exists (and hopefully with the right value). We do not want to
+add _secrets_ like this token to the source code, and we want to make sure they
+remain secret. To achieve this we use [encrypted environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-encrypted-variables-in-travisyml).
+To do so you will need to install the [`travis` CLI tool](https://github.com/travis-ci/travis.rb#installation).
+
+```sh
+gem install travis -v 1.8.9 --no-rdoc --no-ri
+```
+
+Now that we have the `travis` CLI, we can create a Firebase CI token and then
+encrypt it.
+
+```sh
+# This generates a token, e.g. "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla"
+firebase login:ci
+
+# Encrypt the token
+travis encrypt FIREBASE_TOKEN="1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla" --add
+```
+
+The `--add` flag in the previous command should automatically add the encrypted
+variable to your `.travis.yml`. Now it's time to add the `deploy` (and
+optionally `before_deploy` keys to our `.travis.yml`:
 
 ```yml
 language: node_js
 node_js:
   - 10
+env:
+  - secure: "XXXXXXXXXXXX="
 before_deploy:
-  - echo "Do something before deploy!"
+  - echo "Do something before deploying!"
 deploy:
   provider: script
   script: ./scripts/deploy.sh
@@ -595,18 +679,6 @@ deploy:
     repo: Laboratoria/some-repo
     all_branches: true
 ```
-
-In your `package.json`:
-
-```json
-{
-  "scripts": {
-    "deploy": "./scripts/deploy"
-  }
-}
-```
-
-`npm run deploy`
 
 ***
 
