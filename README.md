@@ -58,11 +58,12 @@ our [digital etiquette](https://github.com/Laboratoria/etiquette).
 * [Deployment](#deployment)
   - [Domains](#domains)
   - [DNS](#dns)
+  - [SSL](#ssl)
   - [Node.js modules and CLI tools](#nodejs-modules-and-cli-tools)
   - [Node.js servers](#nodejs-servers)
   - [Cloud functions](#cloud-functions)
   - [Static hosting](#static-hosting)
-  - [MongoDB](#mongodb)
+  - [Databases](#databases)
   - [Continuous delivery](#continuous-delivery)
 * [Code of conduct](#code-of-conduct)
 
@@ -510,6 +511,10 @@ For example:
 
 ## Deployment
 
+Each repo should have detailed deployment documentation available in the repo's
+`README.md` file. In this document we aim to provide some context and guidelines
+for different kind of repos.
+
 ### Domains
 
 Our domain name registrations are managed via [Digital Ocean](https://www.digitalocean.com/).
@@ -576,11 +581,11 @@ Firebase functions
 * Firebase hosting
 * ...
 
-### Firestore
+### Databases
 
-...
+Firestore
 
-### MongoDB
+MongoDB
 
 Atlas vs Docker vs VM
 
