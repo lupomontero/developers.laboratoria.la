@@ -188,7 +188,7 @@ programs.
 
 Job Placement App
 
-It's public website to show your graduate's profiles to the hiring companies.
+It's public website to show your graduate's profile to the hiring companies.
 
 * PM: [@andreamarianalm](https://github.com/andreamarianalm)
 * Tech lead: [@gmoura](https://github.com/gmoura)
