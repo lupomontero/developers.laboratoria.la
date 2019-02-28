@@ -185,7 +185,7 @@ programs.
 
 #### [talento.laboratoria.la](https://github.com/Laboratoria/talento.laboratoria.la)
 
-Job Placemente App
+Job Placement App
 
 * PM: [@andreamarianalm](https://github.com/andreamarianalm)
 * Tech lead: [@gmoura](https://github.com/gmoura)
